@@ -181,6 +181,7 @@ let draftOrder = [[1,"West Coast"],
 
 let selectedPlayers = []
 
+let finished = 0
 
 let currentPick = 1
 
@@ -220,10 +221,15 @@ function refresh(){
 }
 
 function pass(){
+    if (finished == 1){
+        return
+    }
+    else {
     clearTable()
     draftOrder = draftOrder.slice(0,currentPick-1).concat(draftOrder.slice(currentPick))
     
     GenerateTable()
+    }
 
 }
 
@@ -238,6 +244,15 @@ function Bid() {
     let selectedClub = clubPicker.value
     let bid = currentPick
     let bidValue = 0
+
+    for (let counter = 0; counter < selectedPlayers.length; counter++){
+        if (selectedPlayer == selectedPlayers[counter]){
+            window.alert("Player already selected")
+            player.value = ""
+            return
+        }
+    }
+
     if (currentPick < 19){
         bidValue = Math.round((draftValues[bid-1][1]) * 0.8)}
     else {
@@ -280,6 +295,10 @@ function Bid() {
     if (selectedPlayer == "Luamon Lual") {
         if (currentPick > 40) {
         selectedClub = "Western Bulldogs"}
+    }
+    if (selectedPlayer == "Mitch Edwards") {
+        if (currentPick > 40) {
+        selectedClub = "Fremantle"}
     }
 
 
@@ -428,6 +447,7 @@ function GenerateTable() {
 }
 
 function finish() {
+    finished = 1
     clearTable()
     for (let i = 0; i<currentPick-1; i++){
         let t = document.createElement("tr")
@@ -446,7 +466,6 @@ function finish() {
         }
         if (i < selectedPlayers.length){
         player.innerText = selectedPlayers[i]
-        console.log(selectedPlayers[i])
         }
 
 
@@ -506,7 +525,9 @@ function downloadCSVFile(csv_data) {
     var temp_link = document.createElement('a');
 
     // Download csv file
-    temp_link.download = "YourPhantomDraft.csv";
+    const d = new Date();
+    var file_name = "YourPhantomDraft " + String(d.getDate()) + "/" + String(d.getMonth()) + "/" + String(d.getFullYear()) + ".csv"
+    temp_link.download = file_name;
     var url = window.URL.createObjectURL(CSVFile);
     temp_link.href = url;
 
