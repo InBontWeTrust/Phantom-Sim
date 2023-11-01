@@ -229,6 +229,9 @@ function pass(){
     draftOrder = draftOrder.slice(0,currentPick-1).concat(draftOrder.slice(currentPick))
     
     GenerateTable()
+
+    document.getElementById("current-pick").innerText = "Current Pick: " + currentPick
+    document.getElementById("current-club").innerText = "Current Club: " + draftOrder[currentPick-1][1]
     }
 
 }
@@ -261,7 +264,7 @@ function Bid() {
             bidValue = Math.round((draftValues[bid-1][1]) - 197)
         }
         else {
-            
+            bidValue = 0
         }
     }
     let clubPoints = 0
@@ -325,10 +328,20 @@ function Bid() {
     console.log(picksToRemove)
     let pickDiff = clubPoints-bidValue
 
+    if (bidValue == 0){
+        clearTable()
+        draftOrder = draftOrder.slice(0,currentPick-1).concat([[currentPick, selectedClub]]).concat(draftOrder.slice(currentPick-1))
+    }
+
 
     
     if (pickDiff == 0) {
-        console.log("nothing")
+        
+            //console.log("pick " + (j+1))
+            
+            
+        
+
     }
     
     else {
