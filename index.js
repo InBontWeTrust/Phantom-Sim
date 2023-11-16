@@ -239,7 +239,7 @@ function pass(){
 function Bid() {
 
 
-    
+    const playersList = document.getElementById("players")
     const clubPicker = document.getElementById("club-select")
     const pickBid = document.getElementById("pick-bid")
     const player = document.getElementById("player-select")
@@ -253,6 +253,12 @@ function Bid() {
             window.alert("Player already selected")
             player.value = ""
             return
+        }
+    }
+
+    for (let m = 0; m < playersList.childElementCount; m++){
+        if (playersList.children[m].value == selectedPlayer){
+            playersList.children[m].remove()
         }
     }
 
@@ -380,6 +386,8 @@ function Bid() {
     }
     }
 
+    
+
     console.log(draftOrder)
 
     ReassignPickNums()
@@ -397,6 +405,8 @@ function Bid() {
     document.getElementById("current-club").innerText = "Current Club: " + draftOrder[currentPick-1][1]
     player.value = ""
     clubPicker.selectedIndex = 0
+
+    
 
 }
 

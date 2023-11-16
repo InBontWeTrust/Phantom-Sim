@@ -4,6 +4,24 @@ html {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#fixed {
+    position: fixed;
+    background-color: #212121;
+    width: 100%;
+    z-index: 10;
+    top: 0px;
+    padding: 20px;
+
+}
+
+#pick-table {
+    
+    position: absolute;
+    top: 240px;
+    margin-top: 20px;
+
+}
+
 select {
     background-color: rgba(250, 250, 250, 0.904);
 

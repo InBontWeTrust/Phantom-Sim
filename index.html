@@ -11,164 +11,177 @@
 
     <div id="bigdog">
     
-        <h1>AFL Draft Simulator</h1>
+        
         
         <div id="main-container">
 
-            <input type="text" id="player-select" placeholder="Player" list="players">
-            <datalist id="players">
-                <option>Tom Anastasopoulos</option>
-                <option>Oliver Badr</option>
-                <option>Will Brown</option>
-                <option>Kynan Brown</option>
-                <option>Hugh Byrne</option>
-                <option>Lachlan Cabor</option>
-                <option>Nate Caddy</option>
-                <option>Jack Callinan</option>
-                <option>Ry Cantwell</option>
-                <option>Matthew Carroll</option>
-                <option>Lachlan Charleson</option>
-                <option>Josh Chatfield</option>
-                <option>Caiden Cleary</option>
-                <option>Sam Clohesy</option>
-                <option>Jack Cocking</option>
-                <option>Lance Collard</option>
-                <option>Jordan Croft</option>
-                <option>Daniel Curtin</option>
-                <option>Wil Dawson</option>
-                <option>Kade De La Rue</option>
-                <option>Jack Delean</option>
-                <option>Harry DeMattia</option>
-                <option>Jed Dignan</option>
-                <option>Boston Dowling</option>
-                <option>Zane Duursma</option>
-                <option>Mitch Edwards</option>
-                <option>Charlie Edwards</option>
-                <option>Mutaz El Nour</option>
-                <option>Logan Evans</option>
-                <option>Liam Fawcett</option>
-                <option>Kristian Ferronato</option>
-                <option>Joe Fonti</option>
-                <option>Harrison Francis</option>
-                <option>Joel Freijah</option>
-                <option>Hugo Garcia</option>
-                <option>Oscar Gawith</option>
-                <option>Taylor Goad</option>
-                <option>Phoenix Gothard</option>
-                <option>Will Graham</option>
-                <option>Jacob Grant</option>
-                <option>Will Green</option>
-                <option>Clay Hall</option>
-                <option>Riley Hardeman</option>
-                <option>Charlton Harrop</option>
-                <option>Angus Hastie</option>
-                <option>Oscar Hine-Baston</option>
-                <option>Alex Holt</option>
-                <option>Ben Hopkins</option>
-                <option>Tew Jiath</option>
-                <option>Harvey Johnston</option>
-                <option>Odin Jones</option>
-                <option>Luker Kentfield</option>
-                <option>Brayden Laplanche</option>
-                <option>James Leake</option>
-                <option>Coen Livingstone</option>
-                <option>Luke Lloyd</option>
-                <option>Will Lorenz</option>
-                <option>Luamon Lual</option>
-                <option>Henry Maerschel</option>
-                <option>Shaun Mannagh</option>
-                <option>Caleb May</option>
-                <option>Kane McAuliffe</option>
-                <option>Will McCabe</option>
-                <option>Charlie McCormack</option>
-                <option>Colby McKercher</option>
-                <option>Ashton Moir</option>
-                <option>Logan Morris</option>
-                <option>Oliver Murphy</option>
-                <option>Cameron Nyko</option>
-                <option>Aiden O’Driscoll</option>
-                <option>Tarkyn O’Leary</option>
-                <option>Connor O’Sullivan</option>
-                <option>Heath Ollington</option>
-                <option>Will Patton</option>
-                <option>Geordie Payne</option>
-                <option>Nathan Philactides</option>
-                <option>Joe Pike</option>
-                <option>Oliver Poole</option>
-                <option>Loch Rawlinson</option>
-                <option>Ethan Read</option>
-                <option>Archer Reid</option>
-                <option>Harley Reid</option>
-                <option>Archie Roberts</option>
-                <option>Jake Rogers</option>
-                <option>Will Rowlands</option>
-                <option>Michael Rudd</option>
-                <option>Oscar Ryan</option>
-                <option>Koen Sanchez</option>
-                <option>Ryley Sanders</option>
-                <option>Arie Schoenmaker</option>
-                <option>Kobe Shipp</option>
-                <option>Cooper Simpson</option>
-                <option>Luca Slade</option>
-                <option>Oskar Smartt</option>
-                <option>Evan Smith</option>
-                <option>Lachlan Smith</option>
-                <option>Patrick Snell</option>
-                <option>George Stevens</option>
-                <option>Mahmoud Taha</option>
-                <option>Koltyn Tholstrup</option>
-                <option>Harvey Thomas</option>
-                <option>Reece Torrent</option>
-                <option>Cooper Trembath</option>
-                <option>Orlando Turner</option>
-                <option>Bailey Van De Heuvel</option>
-                <option>Sam van Rooyen</option>
-                <option>Vigo Visentini</option>
-                <option>Xavier Walsh</option>
-                <option>Jed Walter</option>
-                <option>Nick Watson</option>
-                <option>Riley Weatherill</option>
-                <option>Nick Williams</option>
-                <option>Riley Wills</option>
-                <option>Darcy Wilson</option>
-                <option>Billy Wilson</option>
-                <option>Caleb Windsor</option>
-                <option>Zane Zakostelsky</option>
+            <div id="fixed">
 
-              </datalist>
+                <h1>AFL Draft Simulator</h1>
 
-            <select name="clubs" id="club-select">
-                <option value="NA">Bidding Club (Default)</option>
-                <option value="Adelaide">Adelaide</option>
-                <option value="Brisbane">Brisbane</option>
-                <option value="Carlton">Carlton</option>
-                <option value="Collingwood">Collingwood</option>
-                <option value="Essendon">Essendon</option>
-                <option value="Fremantle">Fremantle</option>
-                <option value="Geelong">Geelong</option>
-                <option value="Gold Coast">Gold Coast</option>
-                <option value="GWS">GWS</option>
-                <option value="Hawthorn">Hawthorn</option>
-                <option value="Melbourne">Melbourne</option>
-                <option value="North Melbourne">North Melbourne</option>
-                <option value="Port Adelaide">Port Adelaide</option>
-                <option value="Richmond">Richmond</option>
-                <option value="St Kilda">St Kilda</option>
-                <option value="Sydney">Sydney</option>
-                <option value="West Coast">West Coast</option>
-                <option value="Western Bulldogs">Western Bulldogs</option>
+                <input type="text" id="player-select" placeholder="Player" list="players">
+                <datalist id="players">
+                    <option>Harley Reid</option>
+                    <option>Jed Walter</option>
+                    <option>Colby McKercher</option>
+                    <option>Zane Duursma</option>
+                    <option>Daniel Curtin</option>
+                    <option>Nick Watson</option>
+                    <option>Ryley Sanders</option>
+                    <option>Ethan Read</option>
+                    <option>Nate Caddy</option>
+                    <option>Connor O’Sullivan</option>
+                    <option>James Leake</option>
+                    <option>Darcy Wilson</option>
+                    <option>Caleb Windsor</option>
+                    <option>Jordan Croft</option>
+                    <option>Harry DeMattia</option>
+                    <option>Will McCabe</option>
+                    <option>Jake Rogers</option>
+                    <option>Lance Collard</option>
+                    <option>Charlie Edwards</option>
+                    <option>Riley Hardeman</option>
+                    <option>Oliver Murphy</option>
+                    <option>Archer Reid</option>
+                    <option>Koltyn Tholstrup</option>
+                    <option>Taylor Goad</option>
+                    <option>Will Graham</option>
+                    <option>Will Green</option>
+                    <option>Archie Roberts</option>
+                    <option>Arie Schoenmaker</option>
+                    <option>Zane Zakostelsky</option>
+                    <option>Wil Dawson</option>
+                    <option>Mitch Edwards</option>
+                    <option>Phoenix Gothard</option>
+                    <option>Tew Jiath</option>
+                    <option>Luamon Lual</option>
+                    <option>Ashton Moir</option>
+                    <option>George Stevens</option>
+                    <option>Angus Hastie</option>
+                    <option>Jack Callinan</option>
+                    <option>Caiden Cleary</option>
+                    <option>Kade De La Rue</option>
+                    <option>Jack Delean</option>
+                    <option>Joel Freijah</option>
+                    <option>Clay Hall</option>
+                    <option>Harvey Johnston</option>
+                    <option>Luke Lloyd</option>
+                    <option>Shaun Mannagh</option>
+                    <option>Kane McAuliffe</option>
+                    <option>Logan Morris</option>
+                    <option>Aiden O’Driscoll</option>
+                    <option>Tarkyn O’Leary</option>
+                    <option>Will Patton</option>
+                    <option>Koen Sanchez</option>
+                    <option>Cooper Simpson</option>
+                    <option>Billy Wilson</option>
+                    <option>Will Brown</option>
+                    <option>Kynan Brown</option>
+                    <option>Ry Cantwell</option>
+                    <option>Lachlan Charleson</option>
+                    <option>Sam Clohesy</option>
+                    <option>Kristian Ferronato</option>
+                    <option>Charlie Harrop</option>
+                    <option>Will Lorenz</option>
+                    <option>Cameron Nyko</option>
+                    <option>Geordie Payne</option>
+                    <option>Nathan Philactides</option>
+                    <option>Evan Smith</option>
+                    <option>Lachlan Smith</option>
+                    <option>Vigo Visentini</option>
+                    <option>Tom Anastasopoulos</option>
+                    <option>Oliver Badr</option>
+                    <option>Hugh Byrne</option>
+                    <option>Lachlan Cabor</option>
+                    <option>Matthew Carroll</option>
+                    <option>Josh Chatfield</option>
+                    <option>Jack Cocking</option>
+                    <option>Jed Dignan</option>
+                    <option>Boston Dowling</option>
+                    <option>Mutaz El Nour</option>
+                    <option>Logan Evans</option>
+                    <option>Liam Fawcett</option>
+                    <option>Joe Fonti</option>
+                    <option>Harrison Francis</option>
+                    <option>Hugo Garcia</option>
+                    <option>Oscar Gawith</option>
+                    <option>Jacob Grant</option>
+                    <option>Oscar Hine-Baston</option>
+                    <option>Alex Holt</option>
+                    <option>Ben Hopkins</option>
+                    <option>Odin Jones</option>
+                    <option>Luker Kentfield</option>
+                    <option>Brayden Laplanche</option>
+                    <option>Coen Livingstone</option>
+                    <option>Henry Maerschel</option>
+                    <option>Caleb May</option>
+                    <option>Charlie McCormack</option>
+                    <option>Heath Ollington</option>
+                    <option>Joe Pike</option>
+                    <option>Oliver Poole</option>
+                    <option>Loch Rawlinson</option>
+                    <option>Will Rowlands</option>
+                    <option>Michael Rudd</option>
+                    <option>Oscar Ryan</option>
+                    <option>Kobe Shipp</option>
+                    <option>Luca Slade</option>
+                    <option>Oskar Smartt</option>
+                    <option>Patrick Snell</option>
+                    <option>Mahmoud Taha</option>
+                    <option>Harvey Thomas</option>
+                    <option>Reece Torrent</option>
+                    <option>Cooper Trembath</option>
+                    <option>Orlando Turner</option>
+                    <option>Bailey Van De Heuvel</option>
+                    <option>Sam van Rooyen</option>
+                    <option>Xavier Walsh</option>
+                    <option>Riley Weatherill</option>
+                    <option>Nick Williams</option>
+                    <option>Riley Wills</option>
 
-            </select>
-            
-            
-            <button id="bid" onclick="Bid()">Pick</button>
-            <p id="current-pick">Current Pick: 1</p>
-            <p id="current-club">Club: West Coast</p>
-            <button onclick="tableToCSV()">Download Draft</button>
-            <button onclick="undo()">Undo</button>
-            <button onclick="pass()">Pass</button>
-            <button onclick="refresh()">Clear</button>
-            <button onclick="finish()">Finish</button>
+
+
+
+
+                </datalist>
+
+                <select name="clubs" id="club-select">
+                    <option value="NA">Bidding Club (Default)</option>
+                    <option value="Adelaide">Adelaide</option>
+                    <option value="Brisbane">Brisbane</option>
+                    <option value="Carlton">Carlton</option>
+                    <option value="Collingwood">Collingwood</option>
+                    <option value="Essendon">Essendon</option>
+                    <option value="Fremantle">Fremantle</option>
+                    <option value="Geelong">Geelong</option>
+                    <option value="Gold Coast">Gold Coast</option>
+                    <option value="GWS">GWS</option>
+                    <option value="Hawthorn">Hawthorn</option>
+                    <option value="Melbourne">Melbourne</option>
+                    <option value="North Melbourne">North Melbourne</option>
+                    <option value="Port Adelaide">Port Adelaide</option>
+                    <option value="Richmond">Richmond</option>
+                    <option value="St Kilda">St Kilda</option>
+                    <option value="Sydney">Sydney</option>
+                    <option value="West Coast">West Coast</option>
+                    <option value="Western Bulldogs">Western Bulldogs</option>
+
+                </select>
+                
+                
+                <button id="bid" onclick="Bid()">Pick</button>
+                <p id="current-pick">Current Pick: 1</p>
+                <p id="current-club">Club: West Coast</p>
+                <button onclick="tableToCSV()">Download Draft</button>
+                <button onclick="undo()">Undo</button>
+                <button onclick="pass()">Pass</button>
+                <button onclick="refresh()">Clear</button>
+                <button onclick="finish()">Finish</button>
+
+
+            </div>
+
+
 
             <table id="pick-table">
                 <tr>
