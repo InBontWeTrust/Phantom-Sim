@@ -236,10 +236,12 @@ function pass(){
 
 }
 
+const playersList = document.getElementById("players")
+
 function Bid() {
 
 
-    const playersList = document.getElementById("players")
+    
     const clubPicker = document.getElementById("club-select")
     const pickBid = document.getElementById("pick-bid")
     const player = document.getElementById("player-select")
@@ -411,15 +413,20 @@ function Bid() {
 }
 
 function undo() {
+    
     if (currentPick > 1){
-    selectedPlayers.pop()
+    let undonePlayer = selectedPlayers.pop()
+    const undonePlayerNode = document.createElement("option")
+    undonePlayerNode.innerHTML = undonePlayer
+    playersList.prepend(undonePlayerNode)
+
     clearTable()
     GenerateTable()
     currentPick -= 1
     document.getElementById("current-pick").innerText = "Current Pick: " + currentPick
     document.getElementById("current-club").innerText = "Current Club: " + draftOrder[currentPick-1][1]
-    player.value = ""
-    clubPicker.selectedIndex = 0
+    ///clubPicker.selectedIndex = 0
+    
 
     }
 }
