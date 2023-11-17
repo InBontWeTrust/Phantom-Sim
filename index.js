@@ -135,46 +135,34 @@ let draftOrder = [[1,"West Coast"],
 [58,"West Coast"],
 [59,"GWS"],
 [60,"Fremantle"],
-[61,"Essendon"],
+[61,"Hawthorn"],
 [62,"Hawthorn"],
-[63,"Hawthorn"],
-[64,"Fremantle"],
-[65,"Richmond"],
-[66,"Gold Coast"],
-[67,"Brisbane"],
-[68,"Richmond"],
-[69,"Western Bulldogs"],
-[70,"Carlton"],
-[71,"Gold Coast"],
-[72,"Western Bulldogs"],
-[73,"Port Adelaide"],
-[74,"Gold Coast"],
-[75,"Western Bulldogs"],
-[76,"Geelong"],
-[77,"GWS"],
-[78,"Carlton"],
-[79,"GWS"],
+[63,"Fremantle"],
+[64,"Richmond"],
+[65,"Brisbane"],
+[66,"Richmond"],
+[67,"Western Bulldogs"],
+[68,"Carlton"],
+[69,"Port Adelaide"],
+[70,"Geelong"],
+[71,"GWS"],
+[72,"Collingwood"],
+[73,"West Coast"],
+[74,"Fremantle"],
+[75,"Geelong"],
+[76,"Sydney"],
+[77,"St Kilda"],
+[78,"Melbourne"],
+[79,"Geelong"],
 [80,"Collingwood"],
-[81,"West Coast"],
-[82,"North Melbourne"],
-[83,"Hawthorn"],
-[84,"Gold Coast"],
-[85,"Fremantle"],
-[86,"Richmond"],
-[87,"Geelong"],
-[88,"Essendon"],
-[89,"Adelaide"],
-[90,"Western Bulldogs"],
-[91,"Sydney"],
-[92,"St Kilda"],
-[93,"Melbourne"],
-[94,"Geelong"],
-[95,"GWS"],
-[96,"Carlton"],
-[97,"Brisbane"],
-[98,"Collingwood"],
-[99,"Port Adelaide"],
-[100,"Port Adelaide"],
+[81,"Geelong"],
+[82,"St Kilda"],
+[83,"Port Adelaide"],
+[84,"Collingwood"],
+[85,"Geelong"],
+[86,"St Kilda"],
+[87,"Port Adelaide"]
+
 
 
 ]
@@ -303,9 +291,16 @@ function Bid() {
     if (selectedPlayer == "Caiden Cleary") {
         selectedClub = "Sydney"
     }
+    if (selectedPlayer == "Calsher Dear") {
+        selectedClub = "Hawthorn"
+    }
     if (selectedPlayer == "Luamon Lual") {
         if (currentPick > 40) {
         selectedClub = "Western Bulldogs"}
+    }
+    if (selectedPlayer == "Tew Jiath") {
+        if (currentPick > 40) {
+        selectedClub = "Hawthorn"}
     }
     if (selectedPlayer == "Mitch Edwards") {
         if (currentPick > 40) {
@@ -315,6 +310,9 @@ function Bid() {
 
 
     if (selectedClub == "NA"){
+        clearTable()
+    }
+    else if (selectedClub == draftOrder[currentPick][1]){
         clearTable()
     }
 
