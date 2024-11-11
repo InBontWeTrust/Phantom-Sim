@@ -287,9 +287,6 @@ function Bid() {
     if (selectedPlayer == "Sam Marshall") {
         selectedClub = "Brisbane"
     }
-    if (selectedPlayer == "Riak Andrew") {
-        selectedClub = "Melbourne"
-    }
     if (selectedPlayer == "Malakai Champion") {
         selectedClub = "West Coast"
     }
@@ -313,6 +310,18 @@ function Bid() {
     }
     if (selectedPlayer == "Luke Quaynor") {
         selectedClub = "Collingwood"
+    }
+    if (selectedPlayer == "Cody Anderson") {
+        selectedClub = "Hawthorn"
+    }
+    if (selectedPlayer == "Logan Smith") {
+        selectedClub = "GWS"
+    }
+    if (selectedPlayer == "Joel Cochran") {
+        selectedClub = "Sydney"
+    }
+    if (selectedPlayer == "River Stevens") {
+        selectedClub = "North Melbourne"
     }
 
 
