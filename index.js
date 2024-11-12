@@ -145,33 +145,30 @@ let draftOrder = [
     [67,"Fremantle"],
     [68,"Carlton"],
     [69,"Carlton"],
-    [70,"Gold Coast"],
-    [71,"Hawthorn"],
-    [72,"Carlton"],
-    [73,"West Coast"],
-    [74,"GWS"],
-    [75,"Geelong"],
-    [76,"Gold Coast"],
-    [77,"Hawthorn"],
-    [78,"Gold Coast"],
-    [79,"Richmond"],
-    [80,"North Melbourne"],
-    [81,"West Coast"],
-    [82,"Adelaide"],
-    [83,"Melbourne"],
-    [84,"Gold Coast"],
-    [85,"St Kilda"],
-    [86,"Essendon"],
-    [87,"Fremantle"],
-    [88,"Collingwood"],
-    [89,"Carlton"],
+    [70,"Hawthorn"],
+    [71,"Carlton"],
+    [72,"West Coast"],
+    [73,"GWS"],
+    [74,"Geelong"],
+    [75,"Hawthorn"],
+    [76,"North Melbourne"],
+    [77,"West Coast"],
+    [78,"Adelaide"],
+    [79,"Melbourne"],
+    [80,"St Kilda"],
+    [81,"Fremantle"],
+    [82,"Collingwood"],
+    [83,"Western Bulldogs"],
+    [84,"Geelong"],
+    [85,"Sydney"],
+    [86,"North Melbourne"],
+    [87,"West Coast"],
+    [88,"St Kilda"],
+    [89,"Fremantle"],
     [90,"Western Bulldogs"],
-    [91,"Hawthorn"],
-    [92,"GWS"],
-    [93,"Geelong"],
-    [94,"Port Adelaide"],
-    [95,"Sydney"],
-    [96,"Brisbane"]
+    [91,"Sydney"],
+    [92,"West Coast"]
+
 ]
 
 
@@ -332,6 +329,7 @@ function Bid() {
     }
     else if (selectedClub == draftOrder[currentPick][1]){
         clearTable()
+        bidValue = 0
     }
 
 
