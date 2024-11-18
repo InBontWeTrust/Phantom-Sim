@@ -305,6 +305,9 @@ function Bid() {
     if (selectedPlayer == "Adrian Cole") {
         selectedClub = "St Kilda"
     }
+    if (selectedPlayer == "Riak Andrew") {
+        selectedClub = "Melbourne"
+    }
     if (selectedPlayer == "Luke Quaynor") {
         selectedClub = "Collingwood"
     }
@@ -319,6 +322,21 @@ function Bid() {
     }
     if (selectedPlayer == "River Stevens") {
         selectedClub = "North Melbourne"
+    }
+    if (selectedPlayer == "Benny Barrett") {
+        selectedClub = "Port Adelaide"
+    }
+    if (selectedPlayer == "Ty Gallop") {
+        selectedClub = "Brisbane"
+    }
+    if (selectedPlayer == "Jayden Nguyen") {
+        selectedClub = "Essendon"
+    }
+    if (selectedPlayer == "Jaren Carr") {
+        selectedClub = "Fremantle"
+    }
+    if (selectedPlayer == "Ricky Mentha") {
+        selectedClub = "Melbourne"
     }
 
 
