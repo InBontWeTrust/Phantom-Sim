@@ -260,7 +260,7 @@ function Bid() {
     if (currentPick < 19){
         bidValue = Math.round((draftValues[bid-1][1]) * 0.8)}
     else {
-        if (Math.round((draftValues[bid-1][1]) - 197 > 0))
+        if (bid < 56)
         {
             bidValue = Math.round((draftValues[bid-1][1]) - 197)
         }
