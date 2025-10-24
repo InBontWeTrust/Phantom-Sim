@@ -11,13 +11,14 @@ html {
     z-index: 10;
     top: 0px;
     padding: 20px;
+    padding-bottom: 0px;
 
 }
 
 #pick-table {
     
     position: absolute;
-    top: 240px;
+    top: 270px;
     margin-top: 20px;
 
 }
@@ -42,6 +43,7 @@ input {
     font-size: larger;
 
 }
+
 
 #bid {
     background-color: #3700b3;
@@ -69,6 +71,9 @@ table, th, td {
     
 }
 
+#club-col {
+    width: 26.5%;
+}
 #player-col {
     width: 40%;
 }
