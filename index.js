@@ -369,7 +369,7 @@ function Bid() {
     if (selectedClub == "No"){
         clearTable()
     }
-    else if (selectedClub == draftOrder[currentPick][1]){
+    else if (selectedClub == draftOrder[currentPick-1][1]){
         clearTable()
         bidValue = 0
     }
