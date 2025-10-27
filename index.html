@@ -142,11 +142,39 @@
                 <p id="current-pick">Current Pick: 1</p>
                 <p id="current-club">Club: West Coast</p>
                 <p id="bidding-info">Bid Points Matching - N/A</p>
+                <div id="pick-trading">
+                    <select name="tradepick" id="trade-pick">
+
+                    </select>
+                    <select name="tradeclub" id="trade-select">
+                        <option value="Adelaide">Adelaide</option>
+                        <option value="Brisbane">Brisbane</option>
+                        <option value="Carlton">Carlton</option>
+                        <option value="Collingwood">Collingwood</option>
+                        <option value="Essendon">Essendon</option>
+                        <option value="Fremantle">Fremantle</option>
+                        <option value="Geelong">Geelong</option>
+                        <option value="Gold Coast">Gold Coast</option>
+                        <option value="Greater Western Sydney">Greater Western Sydney</option>
+                        <option value="Hawthorn">Hawthorn</option>
+                        <option value="Melbourne">Melbourne</option>
+                        <option value="North Melbourne">North Melbourne</option>
+                        <option value="Port Adelaide">Port Adelaide</option>
+                        <option value="Richmond">Richmond</option>
+                        <option value="St Kilda">St Kilda</option>
+                        <option value="Sydney">Sydney</option>
+                        <option value="West Coast">West Coast</option>
+                        <option value="Western Bulldogs">Western Bulldogs</option>
+
+                    </select>
+                    <button onclick="tradePick()" id="trade-button">Trade Pick</button>
+                </div>
                 <button onclick="tableToCSV()">Download Draft</button>
                 <button onclick="undo()">Undo</button>
                 <button onclick="pass()">Pass</button>
                 <button onclick="refresh()">Clear</button>
                 <button onclick="finish()">Finish</button>
+                
                 
 
 
@@ -155,7 +183,7 @@
 
 
             <table id="pick-table">
-                <tr>
+                <tr id="table-header">
                     <th>Pick Number</th>
                     <th id="club-col">Club</th>
                     <th>Points</th>

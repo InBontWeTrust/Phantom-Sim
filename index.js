@@ -187,6 +187,37 @@ let currentPick = 1
 const selection = document.getElementById("player-select")
 const club = document.getElementById("club-select")
 
+const pickToTrade = document.getElementById("trade-pick")
+const clubToTrade = document.getElementById("trade-select")
+
+function updateTradablePicks() {
+
+    while (pickToTrade.options.length > 0) {
+        pickToTrade.remove(0);
+    }
+    console.log(currentPick)
+    for(let i = currentPick-1; i < draftOrder.length; i++) {
+        let opt = draftOrder[i][0];
+        let el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        pickToTrade.appendChild(el);
+    }
+}
+
+function tradePick() {
+    draftOrder[pickToTrade.value-1][1] = clubToTrade.value
+    clearTable()
+    GenerateTable()
+
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+        // Your JavaScript code here
+        updateTradablePicks();
+
+    });
+
 selection.addEventListener("keydown", function (e) {
     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
         Bid();
@@ -479,6 +510,8 @@ function Bid() {
     document.getElementById("bidding-info").innerText = matchingString
     player.value = ""
     clubPicker.selectedIndex = 0
+
+    updateTradablePicks();
 
     
 

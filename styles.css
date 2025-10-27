@@ -15,11 +15,16 @@ html {
 
 }
 
+
+
+#pick-trading {
+    padding-bottom: 10px;
+}
+
 #pick-table {
-    
     position: absolute;
     top: 270px;
-    margin-top: 20px;
+    margin-top: 40px;
 
 }
 
@@ -44,10 +49,17 @@ input {
 
 }
 
-
+#club-select {
+    padding-left: 3px;
+    padding-right: 3px;
+}
 #bid {
-    background-color: #3700b3;
+    background-color: #3f0cb4;
     border-radius: 10%;
+}
+
+#trade-button {
+    background-color: #7742f3;
 }
 
 
