@@ -11,7 +11,7 @@ html {
     z-index: 10;
     top: 0px;
     padding: 20px;
-    padding-bottom: 0px;
+    padding-bottom: 20px;
 
 }
 
@@ -23,8 +23,8 @@ html {
 
 #pick-table {
     position: absolute;
-    top: 270px;
-    margin-top: 40px;
+    top: 325px;
+    margin-top: 0px;
 
 }
 
@@ -76,7 +76,7 @@ table, th, td {
     border: 1px solid rgba(255, 255, 255, 0.086);
     border-collapse: collapse;
     padding: 3px 10px;
-    margin-top: 10px;
+    margin-top: 40px;
     width: 700px;
     text-align: center;
     background-color: rgba(44, 45, 41, 0.788);

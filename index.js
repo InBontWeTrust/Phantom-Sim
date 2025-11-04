@@ -299,17 +299,18 @@ function Bid() {
         }
     }
 
-    if (currentPick < 73){
+    if (currentPick < 19){
         bidValue = Math.round((draftValues[bid-1][1]) * 0.9)}
-    /*else {
-        if (bid < 56)
+    else {
+        if (bid < 37)
         {
-            bidValue = Math.round((draftValues[bid-1][1]) - 197)
+            bidValue = Math.round((draftValues[bid-1][1]) - 84)
         }
         else {
             bidValue = 0
         }
-    }*/
+    }
+    
     let clubPoints = 0
     let picksToRemove = []
 
@@ -365,6 +366,9 @@ function Bid() {
     else if (selectedPlayer == "Charlie Banfield") {
         selectedClub = "West Coast"
     }
+    else if (selectedPlayer == "Koby Evans") {
+        selectedClub = "West Coast"
+    }
     else if (selectedPlayer == "Jai Murray") {
         selectedClub = "Gold Coast"
     }
@@ -378,6 +382,9 @@ function Bid() {
         selectedClub = "Fremantle"
     }
     else if (selectedPlayer == "Tyan Prindable") {
+        selectedClub = "Brisbane"
+    }
+    else if (selectedPlayer == "Isaac Waller") {
         selectedClub = "Brisbane"
     }
     else if (selectedPlayer == "Jesse Mellor") {
