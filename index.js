@@ -110,7 +110,7 @@ let draftOrder = [
 [50,"St Kilda"],
 [51,"Brisbane"],
 [52,"Gold Coast"],
-[53,"West Coast"],
+[53,"Western Bulldogs"],
 [54,"Carlton"],
 [55,"Adelaide"],
 [56,"Collingwood"],
@@ -307,7 +307,7 @@ function Bid() {
             bidValue = Math.round((draftValues[bid-1][1]) - 84)
         }
         else {
-            bidValue = 0
+            bidValue = 1
         }
     }
     
@@ -416,6 +416,7 @@ function Bid() {
     
     
     else {
+    if (currentPick < 37) { 
     for (let i = currentPick - 1; i<55; i++){
         if (draftOrder[i][1] == selectedClub) {
             
@@ -426,6 +427,20 @@ function Bid() {
             
         }
     }
+    }
+    else {
+        for (let i = currentPick - 1; i<draftOrder.length; i++){
+        if (draftOrder[i][1] == selectedClub) {
+            let nextPick = 0
+            if (nextPick == 0){
+                picksToRemove.push(draftOrder[i][0])
+                nextPick = 1
+            }
+            
+        }
+    }
+    }
+    
 
     console.log(picksToRemove)
     let pickDiff = clubPoints-bidValue
@@ -488,7 +503,7 @@ function Bid() {
     }
 
     console.log(matchingString)
-    if ((clubPoints-bidValue) < 0) {
+    if ((clubPoints-bidValue) < -1) {
         if (picksToRemove.length == 0) {
             matchingString = matchingString.concat("N/A", " Points Deficit: ", String(clubPoints-bidValue))
         }
