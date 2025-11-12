@@ -177,6 +177,28 @@ let draftOrder = [
 
 ]
 
+let picksUsed = 
+{
+    "Adelaide": [0,2],
+    "Brisbane": [0,4],
+    "Carlton": [0,3],
+    "Collingwood": [0,4],
+    "Essendon": [0,5],
+    "Fremantle": [0,2],
+    "Geelong": [0,2],
+    "Gold Coast": [0,6],
+    "Greater Western Sydney": [0,2],
+    "Hawthorn": [0,3],
+    "Melbourne": [0,4],
+    "North Melbourne": [0,3],
+    "Port Adelaide": [0,1],
+    "Richmond": [0,3],
+    "St Kilda": [0,2],
+    "Sydney": [0,4],
+    "West Coast": [0,5],
+    "Western Bulldogs": [0,3]
+}
+
 
 let selectedPlayers = []
 
@@ -209,6 +231,8 @@ function tradePick() {
     draftOrder[pickToTrade.value-1][1] = clubToTrade.value
     clearTable()
     GenerateTable()
+    document.getElementById("current-club").innerText = "Current Club: " + draftOrder[currentPick-1][1]
+    document.getElementById("picks-used-info").innerText = draftOrder[currentPick-1][1] + " Picks Used: " + picksUsed[draftOrder[currentPick-1][1]][0] + " Max Picks: " + picksUsed[draftOrder[currentPick-1][1]][1]
 
 }
 
@@ -524,14 +548,22 @@ function Bid() {
     picksToRemove = []
     clubPoints = 0
 
+    console.log(draftOrder[currentPick-1][1])
+    picksUsed[draftOrder[currentPick-1][1]][0] += 1
+
     
     currentPick += 1
+
+
 
     document.getElementById("current-pick").innerText = "Current Pick: " + currentPick
     document.getElementById("current-club").innerText = "Current Club: " + draftOrder[currentPick-1][1]
     document.getElementById("bidding-info").innerText = matchingString
+    document.getElementById("picks-used-info").innerText = draftOrder[currentPick-1][1] + " Picks Used: " + picksUsed[draftOrder[currentPick-1][1]][0] + " Max Picks: " + picksUsed[draftOrder[currentPick-1][1]][1]
     player.value = ""
     clubPicker.selectedIndex = 0
+
+    
 
     updateTradablePicks();
 
@@ -552,6 +584,8 @@ function undo() {
     currentPick -= 1
     document.getElementById("current-pick").innerText = "Current Pick: " + currentPick
     document.getElementById("current-club").innerText = "Current Club: " + draftOrder[currentPick-1][1]
+    picksUsed[draftOrder[currentPick-1][1]][0] -= 1
+    document.getElementById("picks-used-info").innerText = draftOrder[currentPick-1][1] + " Picks Used: " + picksUsed[draftOrder[currentPick-1][1]][0] + " Max Picks: " + picksUsed[draftOrder[currentPick-1][1]][1]
     ///clubPicker.selectedIndex = 0
     
 
