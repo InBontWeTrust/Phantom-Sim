@@ -246,6 +246,7 @@ function pass(){
 
     document.getElementById("current-pick").innerText = "Current Pick: " + currentPick
     document.getElementById("current-club").innerText = "Current Club: " + draftOrder[currentPick-1][1]
+    document.getElementById("picks-used-info").innerText = draftOrder[currentPick-1][1] + " Picks Used: " + picksUsed[draftOrder[currentPick-1][1]][0] + " Maximum Picks: " + picksUsed[draftOrder[currentPick-1][1]][1]
     }
 
 }
@@ -519,7 +520,7 @@ function Bid() {
     document.getElementById("current-pick").innerText = "Current Pick: " + currentPick
     document.getElementById("current-club").innerText = "Current Club: " + draftOrder[currentPick-1][1]
     document.getElementById("bidding-info").innerText = matchingString
-    document.getElementById("picks-used-info").innerText = draftOrder[currentPick-1][1] + " Picks Used: " + picksUsed[draftOrder[currentPick-1][1]][0] + " Max Picks: " + picksUsed[draftOrder[currentPick-1][1]][1]
+    document.getElementById("picks-used-info").innerText = draftOrder[currentPick-1][1] + " Picks Used: " + picksUsed[draftOrder[currentPick-1][1]][0] + " Maximum Picks: " + picksUsed[draftOrder[currentPick-1][1]][1]
     player.value = ""
     clubPicker.selectedIndex = 0
 
@@ -545,7 +546,7 @@ function undo() {
     document.getElementById("current-pick").innerText = "Current Pick: " + currentPick
     document.getElementById("current-club").innerText = "Current Club: " + draftOrder[currentPick-1][1]
     picksUsed[draftOrder[currentPick-1][1]][0] -= 1
-    document.getElementById("picks-used-info").innerText = draftOrder[currentPick-1][1] + " Picks Used: " + picksUsed[draftOrder[currentPick-1][1]][0] + " Max Picks: " + picksUsed[draftOrder[currentPick-1][1]][1]
+    document.getElementById("picks-used-info").innerText = draftOrder[currentPick-1][1] + " Picks Used: " + picksUsed[draftOrder[currentPick-1][1]][0] + " Maximum Picks: " + picksUsed[draftOrder[currentPick-1][1]][1]
     ///clubPicker.selectedIndex = 0
     
 
