@@ -461,7 +461,7 @@ function Bid() {
     draftOrder = draftOrder.slice(0,bid-1).concat([newPick]).concat(draftOrder.slice(bid-1))
     
     console.log(draftOrder[0][0])
-    matchingString = "Bid Points Matching - " +selectedClub +  " lose: "
+    matchingString = "Bid Points Matching: " +selectedClub +  " lose: "
     for (let k = 0; k<= 55; k++){
         for (let l = 0; l<picksToRemove.length; l++){
             
