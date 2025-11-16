@@ -437,10 +437,10 @@ function Bid() {
 
 
     
-    if (pickDiff == 0) {
+    if (pickDiff == 0 && selectedClub == draftOrder[currentPick-1][1]) {
         
             //console.log("pick " + (j+1))
-            
+            clearTable()
             
         
 
