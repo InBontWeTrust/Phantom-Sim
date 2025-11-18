@@ -265,7 +265,7 @@ function Bid() {
     let bid = currentPick
     let bidValue = 0
     let biddingInfo = document.getElementById("bidding-info")
-    let matchingString = "Bid Points Matching - N/A "
+    let matchingString = "Bid Points Matching: N/A "
 
     let fullSelectedPlayer = selectedPlayer
     selectedPlayer = selectedPlayer.replace(/\s*\(.*?\)\s*/g, "").trim();
@@ -550,6 +550,91 @@ function undo() {
     ///clubPicker.selectedIndex = 0
     
 
+    }
+}
+
+function importTrades() {
+    if (currentPick == 1) {
+        draftOrder = [
+            [1,"West Coast"],
+            [2,"West Coast"],
+            [3,"Richmond"],
+            [4,"Richmond"],
+            [5,"Essendon"],
+            [6,"Essendon"],
+            [7,"Melbourne"],
+            [8,"Melbourne"],
+            [9,"Essendon"],
+            [10,"Hawthorn"],
+            [11,"North Melbourne"],
+            [12,"Greater Western Sydney"],
+            [13,"West Coast"],
+            [14,"Western Bulldogs"],
+            [15,"Gold Coast"],
+            [16,"Adelaide"],
+            [17,"Brisbane"],
+            [18,"Gold Coast"],
+            [19,"Geelong"],
+            [20,"Fremantle"],
+            [21,"Carlton"],
+            [22,"Hawthorn"],
+            [23,"Brisbane"],
+            [24,"Gold Coast"],
+            [25,"Carlton"],
+            [26,"North Melbourne"],
+            [27,"Carlton"],
+            [28,"Gold Coast"],
+            [29,"Gold Coast"],
+            [30,"Carlton"],
+            [31,"Sydney"],
+            [32,"Sydney"],
+            [33,"Western Bulldogs"],
+            [34,"West Coast"],
+            [35,"Gold Coast"],
+            [36,"Gold Coast"],
+            [37,"Melbourne"],
+            [38,"Richmond"],
+            [39,"Collingwood"],
+            [40,"Geelong"],
+            [41,"West Coast"],
+            [42,"Sydney"],
+            [43,"Carlton"],
+            [44,"Brisbane"],
+            [45,"Collingwood"],
+            [46,"North Melbourne"],
+            [47,"Fremantle"],
+            [48,"Gold Coast"],
+            [49,"Gold Coast"],
+            [50,"St Kilda"],
+            [51,"Brisbane"],
+            [52,"Gold Coast"],
+            [53,"Western Bulldogs"],
+            [54,"Carlton"],
+            [55,"Adelaide"],
+            [56,"Collingwood"],
+            [57,"Brisbane"],
+            [58,"Collingwood"],
+            [59,"Hawthorn"],
+            [60,"Sydney"],
+            [61,"Adelaide"],
+            [62,"St Kilda"],
+            [63,"Melbourne"],
+            [64,"Fremantle"],
+            [65,"Melbourne"],
+            [66,"Hawthorn"],
+            [67,"Collingwood"],
+            [68,"Richmond"],
+            [69,"Port Adelaide"],
+            [70,"St Kilda"],
+            [71,"Sydney"],
+            [72,"Fremantle"],
+            [73,"Greater Western Sydney"],
+            [74,"Port Adelaide"]]
+        clearTable()
+        GenerateTable()
+    }
+    else {
+        window.alert("Cannot import trades after draft has started.")
     }
 }
 
