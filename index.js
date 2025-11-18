@@ -598,7 +598,7 @@ function importTrades() {
             [40,"Geelong"],
             [41,"West Coast"],
             [42,"Sydney"],
-            [43,"Carlton"],
+            [43,"Essendon"],
             [44,"Brisbane"],
             [45,"Collingwood"],
             [46,"Carlton"],
