@@ -58,80 +58,103 @@ const draftValues = [
 ]
 
 let draftOrder = [
-[1,"West Coast"],
-[2,"West Coast"],
-[3,"Richmond"],
-[4,"Richmond"],
-[5,"Essendon"],
-[6,"Essendon"],
-[7,"Melbourne"],
-[8,"Melbourne"],
-[9,"Carlton"],
-[10,"Hawthorn"],
-[11,"Carlton"],
-[12,"Greater Western Sydney"],
-[13,"West Coast"],
-[14,"Western Bulldogs"],
-[15,"Gold Coast"],
-[16,"Adelaide"],
-[17,"Brisbane"],
-[18,"Gold Coast"],
-[19,"Geelong"],
-[20,"Fremantle"],
-[21,"Essendon"],
-[22,"Hawthorn"],
-[23,"Brisbane"],
-[24,"Gold Coast"],
-[25,"North Melbourne"],
-[26,"North Melbourne"],
-[27,"Essendon"],
-[28,"Gold Coast"],
-[29,"Gold Coast"],
-[30,"Essendon"],
-[31,"Sydney"],
-[32,"Sydney"],
-[33,"Western Bulldogs"],
-[34,"West Coast"],
-[35,"Greater Western Sydney"],
-[36,"Gold Coast"],
-[37,"Melbourne"],
-[38,"Richmond"],
-[39,"Collingwood"],
-[40,"Geelong"],
-[41,"West Coast"],
-[42,"Sydney"],
-[43,"Carlton"],
-[44,"Brisbane"],
-[45,"Collingwood"],
-[46,"North Melbourne"],
-[47,"Fremantle"],
-[48,"Adelaide"],
-[49,"Port Adelaide"],
-[50,"St Kilda"],
-[51,"Brisbane"],
-[52,"Gold Coast"],
+[1,"Essendon"],
+[2,"Richmond"],
+[3,"West Coast"],
+[4,"Melbourne"],
+[5,"Richmond"],
+[6,"Sydney"],
+[7,"Port Adelaide"],
+[8,"Gold Coast"],
+[9,"GWS"],
+[10,"St Kilda"],
+[11,"Collingwood"],
+[12,"Port Adelaide"],
+[13,"Carlton"],
+[14,"Melbourne"],
+[15,"Adelaide"],
+[16,"St Kilda"],
+[17,"Essendon"],
+[18,"Carlton"],
+[19,"Fremantle"],
+[20,"GWS"],
+[21,"Brisbane"],
+[22,"Port Adelaide"],
+[23,"West Coast"],
+[24,"Port Adelaide"],
+[25,"Essendon"],
+[26,"GWS"],
+[27,"Brisbane"],
+[28,"Brisbane"],
+[29,"Hawthorn"],
+[30,"Collingwood"],
+[31,"Carlton"],
+[32,"Adelaide"],
+[33,"North Melbourne"],
+[34,"Port Adelaide"],
+[35,"Adelaide"],
+[36,"Geelong"],
+[37,"Hawthorn"],
+[38,"Sydney"],
+[39,"Sydney"],
+[40,"Fremantle"],
+[41,"St Kilda"],
+[42,"Western Bulldogs"],
+[43,"Adelaide"],
+[44,"Richmond"],
+[45,"Brisbane"],
+[46,"Port Adelaide"],
+[47,"Sydney"],
+[48,"Melbourne"],
+[49,"North Melbourne"],
+[50,"Carlton"],
+[51,"St Kilda"],
+[52,"Melbourne"],
 [53,"Western Bulldogs"],
-[54,"Carlton"],
-[55,"Adelaide"],
-[56,"Collingwood"],
-[57,"Brisbane"],
-[58,"Collingwood"],
-[59,"Hawthorn"],
-[60,"Sydney"],
-[61,"Adelaide"],
-[62,"St Kilda"],
-[63,"Melbourne"],
-[64,"Fremantle"],
-[65,"Melbourne"],
-[66,"Hawthorn"],
+[54,"Sydney"],
+[55,"Western Bulldogs"],
+[56,"Adelaide"],
+[57,"Geelong"],
+[58,"West Coast"],
+[59,"GWS"],
+[60,"Fremantle"],
+[61,"Carlton"],
+[62,"Geelong"],
+[63,"Fremantle"],
+[64,"West Coast"],
+[65,"Port Adelaide"],
+[66,"North Melbourne"],
 [67,"Collingwood"],
-[68,"Richmond"],
-[69,"Port Adelaide"],
-[70,"St Kilda"],
-[71,"Sydney"],
-[72,"Fremantle"],
-[73,"Greater Western Sydney"],
-[74,"Port Adelaide"]
+[68,"Collingwood"],
+[69,"St Kilda"],
+[70,"Collingwood"],
+[71,"Hawthorn"],
+[72,"Carlton"],
+[73,"West Coast"],
+[74,"North Melbourne"],
+[75,"Geelong"],
+[76,"Sydney"],
+[77,"GWS"],
+[78,"Fremantle"],
+[79,"Brisbane"],
+[80,"Essendon"],
+[81,"Gold Coast"],
+[82,"West Coast"],
+[83,"Western Bulldogs"],
+[84,"North Melbourne"],
+[85,"Gold Coast"],
+[86,"GWS"],
+[87,"St Kilda"],
+[88,"Collingwood"],
+[89,"Western Bulldogs"],
+[90,"Carlton"],
+[91,"Western Bulldogs"],
+[92,"Adelaide"],
+[93,"Geelong"],
+[94,"Hawthorn"],
+[95,"Sydney"],
+[96,"Fremantle"],
+[97,"Brisbane"]
 
 
 
@@ -139,24 +162,24 @@ let draftOrder = [
 
 let picksUsed = 
 {
-    "Adelaide": [0,2],
+    "Adelaide": [0,3],
     "Brisbane": [0,4],
-    "Carlton": [0,3],
+    "Carlton": [0,4],
     "Collingwood": [0,4],
     "Essendon": [0,5],
-    "Fremantle": [0,2],
-    "Geelong": [0,2],
-    "Gold Coast": [0,6],
-    "Greater Western Sydney": [0,2],
+    "Fremantle": [0,3],
+    "Geelong": [0,3],
+    "Gold Coast": [0,1],
+    "Greater Western Sydney": [0,3],
     "Hawthorn": [0,3],
     "Melbourne": [0,4],
     "North Melbourne": [0,3],
-    "Port Adelaide": [0,1],
-    "Richmond": [0,3],
-    "St Kilda": [0,2],
+    "Port Adelaide": [0,6],
+    "Richmond": [0,4],
+    "St Kilda": [0,3],
     "Sydney": [0,4],
-    "West Coast": [0,5],
-    "Western Bulldogs": [0,3]
+    "West Coast": [0,4],
+    "Western Bulldogs": [0,4]
 }
 
 
@@ -227,7 +250,7 @@ function Select() {
     selectedPlayers.push(selectedPlayerPick)
     console.log(selectedPlayers)
     
-    GenerateTable()
+    //GenerateTable()
 }
 
 function refresh(){
@@ -266,6 +289,7 @@ function Bid() {
     let bidValue = 0
     let biddingInfo = document.getElementById("bidding-info")
     let matchingString = "Bid Points Matching: N/A "
+    let pickDiff = 0
 
     let fullSelectedPlayer = selectedPlayer
     selectedPlayer = selectedPlayer.replace(/\s*\(.*?\)\s*/g, "").trim();
@@ -278,11 +302,7 @@ function Bid() {
         }
     }
 
-    for (let m = 0; m < playersList.childElementCount; m++){
-        if (playersList.children[m].value == fullSelectedPlayer){
-            playersList.children[m].remove()
-        }
-    }
+    
 
     if (currentPick < 19){
         bidValue = Math.round((draftValues[bid-1][1]) * 0.9)}
@@ -300,83 +320,61 @@ function Bid() {
     let picksToRemove = []
 
     if (selectedClub == "Yes") {
-    if (selectedPlayer == "Zeke Uwland") {
+    if (selectedPlayer == "Archie Hill") {
         selectedClub = "Gold Coast"
     }
-    else if (selectedPlayer == "Dylan Patterson") {
-        selectedClub = "Gold Coast"
-    }
-    else if (selectedPlayer == "Adam Sweid") {
+    else if (selectedPlayer == "Blake Justice") {
         selectedClub = "Essendon"
     }
-    else if (selectedPlayer == "Daniel Annable") {
+    else if (selectedPlayer == "Caylen Murray") {
         selectedClub = "Brisbane"
     }
-    else if (selectedPlayer == "Beau Addinsall") {
-        selectedClub = "Gold Coast"
-    }
-    else if (selectedPlayer == "Harry Dean") {
+
+    else if (selectedPlayer == "Cody Walker") {
         selectedClub = "Carlton"
     }
-    else if (selectedPlayer == "Jack Ison") {
-        selectedClub = "Carlton"
-    }
-    else if (selectedPlayer == "Kye Fincher") {
-        selectedClub = "St Kilda"
-    }
-    else if (selectedPlayer == "Lachlan Carmichael") {
-        selectedClub = "Sydney"
-    }
-    else if (selectedPlayer == "Max King") {
-        selectedClub = "Sydney"
-    }
-    else if (selectedPlayer == "Harry Kyle") {
-        selectedClub = "Sydney"
-    }
-    else if (selectedPlayer == "Will Darcy") {
+    else if (selectedPlayer == "Khaled El Souki") {
         selectedClub = "Western Bulldogs"
     }
-    else if (selectedPlayer == "Hussien El Achkar") {
-        selectedClub = "Essendon"
+    else if (selectedPlayer == "Douglas Cochrane") {
+        selectedClub = "Port Adelaide"
     }
-    else if (selectedPlayer == "Zac McCarthy") {
-        selectedClub = "Collingwood"
+    else if (selectedPlayer == "Mason McGroder") {
+        selectedClub = "Sydney"
     }
-    else if (selectedPlayer == "Wes Walley") {
-        selectedClub = "West Coast"
+    else if (selectedPlayer == "Jake Medved") {
+        selectedClub = "Sydney"
     }
-    else if (selectedPlayer == "Tylah Williams") {
-        selectedClub = "West Coast"
+    else if (selectedPlayer == "Henry Meaney") {
+        selectedClub = "Sydney"
     }
-    else if (selectedPlayer == "Charlie Banfield") {
-        selectedClub = "West Coast"
-    }
-    else if (selectedPlayer == "Koby Evans") {
-        selectedClub = "West Coast"
-    }
-    else if (selectedPlayer == "Jai Murray") {
-        selectedClub = "Gold Coast"
-    }
-    else if (selectedPlayer == "Koby Coulson") {
-        selectedClub = "Gold Coast"
-    }
-    else if (selectedPlayer == "Kalani White") {
-        selectedClub = "Melbourne"
-    }
-    else if (selectedPlayer == "Toby Whan") {
+
+    else if (selectedPlayer == "Finlay Yeo") {
         selectedClub = "Fremantle"
     }
-    else if (selectedPlayer == "Tyan Prindable") {
-        selectedClub = "Brisbane"
+    else if (selectedPlayer == "Anthony Long") {
+        selectedClub = "Adelaide"
     }
-    else if (selectedPlayer == "Isaac Waller") {
-        selectedClub = "Brisbane"
+    else if (selectedPlayer == "Garrison Kehn") {
+        selectedClub = "West Coast"
     }
-    else if (selectedPlayer == "Jesse Mellor") {
-        selectedClub = "Geelong"
+    else if (selectedPlayer == "Harper Banfield") {
+        selectedClub = "West Coast"
     }
-    else if (selectedPlayer == "Louis Kellaway") {
+    else if (selectedPlayer == "Tanner Armstrong") {
         selectedClub = "Richmond"
+    }
+    else if (selectedPlayer == "Cooper Hodge") {
+        selectedClub = "Hawthorn"
+    }
+    else if (selectedPlayer == "Keenan Boi") {
+        selectedClub = "Hawthorn"
+    }
+    else if (selectedPlayer == "Aidan McCartney") {
+        selectedClub = "North Melbourne"
+    }
+    else if (selectedPlayer == "Ethan Matthews") {
+        selectedClub = "GWS"
     }
     else {
         selectedClub = "No"
@@ -387,7 +385,7 @@ function Bid() {
     }
     
 
-
+    
 
     if (selectedClub == "No"){
         clearTable()
@@ -401,13 +399,17 @@ function Bid() {
     
     
     else {
+        maxtwopickscount = 0
     if (currentPick < 37) { 
     for (let i = currentPick - 1; i<55; i++){
         if (draftOrder[i][1] == selectedClub) {
-            
+            if (maxtwopickscount == 2){
+                break
+            }
             if (clubPoints<bidValue){
                 picksToRemove.push(draftOrder[i][0])
                 clubPoints += draftValues[i][1]
+                maxtwopickscount += 1
             }
             
         }
@@ -428,7 +430,14 @@ function Bid() {
     
 
     console.log(picksToRemove)
-    let pickDiff = clubPoints-bidValue
+    pickDiff = clubPoints-bidValue
+
+    if (pickDiff < -412) {
+        alert("Cannot match bid, deficit is " + String(pickDiff))
+        
+    }
+    else {
+    
 
     if (bidValue == 0){
         clearTable()
@@ -502,8 +511,11 @@ function Bid() {
     
 
     ReassignPickNums()
-    console.log(selectedPlayer)}
+    console.log(selectedPlayer)}}
+
+    if (pickDiff > -412) {
     selectedPlayers.push(selectedPlayer)
+    console.log("pushed")
     console.log(selectedPlayers)
     GenerateTable()
     picksToRemove = []
@@ -528,7 +540,17 @@ function Bid() {
 
     updateTradablePicks();
 
-    
+    for (let m = 0; m < playersList.childElementCount; m++){
+        if (playersList.children[m].value == fullSelectedPlayer){
+            playersList.children[m].remove()
+        }
+    }
+
+    }
+    else {
+        clearTable()
+        GenerateTable()
+    }
 
 }
 
@@ -552,7 +574,7 @@ function undo() {
 
     }
 }
-
+/*
 function importTrades() {
     if (currentPick == 1) {
         draftOrder = [
@@ -637,7 +659,7 @@ function importTrades() {
         window.alert("Cannot import trades after draft has started.")
     }
 }
-
+*/
 function clearTable() {
     for (let i = 1; i<=draftOrder.length; i++){
         document.getElementById("pick-table").deleteRow(1)
