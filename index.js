@@ -200,9 +200,9 @@ function updateTradablePicks() {
     while (pickToTrade.options.length > 0) {
         pickToTrade.remove(0);
     }
-    console.log(currentPick)
+    console.log("I can trade"+ currentPick + pickToTrade.options.length)
     for(let i = currentPick-1; i < draftOrder.length; i++) {
-        let opt = draftOrder[i][0];
+        let opt = i+1;
         let el = document.createElement("option");
         el.textContent = opt;
         el.value = opt;
@@ -297,6 +297,7 @@ function Bid(auto) {
         selectedPlayer = auto
         if (picksUsed[draftOrder[currentPick-1][1]][0] >= picksUsed[draftOrder[currentPick-1][1]][1]) {
             pass()
+            updateTradablePicks();
             return
         }
 
@@ -743,6 +744,61 @@ function GenerateTable() {
         const player = document.createElement("td")
         pick.innerText = i+1
         club.innerText = draftOrder[i][1]
+        if (club.innerText == "Essendon") {
+            club.classList.add("Essendon")
+        }
+        if (club.innerText == "Adelaide") {
+            club.classList.add("Adelaide")
+        }
+        if (club.innerText == "Brisbane") {
+            club.classList.add("Brisbane")
+        }
+        if (club.innerText == "Carlton") {
+            club.classList.add("Carlton")
+        }
+        if (club.innerText == "Collingwood") {
+            club.classList.add("Collingwood")
+        }
+        if (club.innerText == "Fremantle") {
+            club.classList.add("Fremantle")
+        }
+        if (club.innerText == "Geelong") {
+            club.classList.add("Geelong")
+        }
+        if (club.innerText == "Gold Coast") {
+            club.classList.add("GoldCoast")
+        }
+        if (club.innerText == "Greater Western Sydney") {
+            club.classList.add("GWS")
+        }
+        if (club.innerText == "Hawthorn") {
+            club.classList.add("Hawthorn")
+        }
+        if (club.innerText == "Melbourne") {
+            club.classList.add("Melbourne")
+        }
+        if (club.innerText == "North Melbourne") {
+            club.classList.add("NorthMelbourne")
+        }
+        if (club.innerText == "Port Adelaide") {
+            club.classList.add("PortAdelaide")
+        }
+        if (club.innerText == "Richmond") {
+            club.classList.add("Richmond")
+        }
+        if (club.innerText == "St Kilda") {
+            club.classList.add("StKilda")
+        }
+        if (club.innerText == "Sydney") {
+            club.classList.add("Sydney")
+        }
+        if (club.innerText == "West Coast") {
+            club.classList.add("WestCoast")
+        }
+        if (club.innerText == "Western Bulldogs") {
+            club.classList.add("WesternBulldogs")
+        }
+
         if (i < 55){
         points.innerText = draftValues[i][1]
         }

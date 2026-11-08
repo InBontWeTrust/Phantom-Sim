@@ -98,3 +98,96 @@ table, th, td {
     padding-left: 1%;
 
 }
+
+
+
+.Adelaide {
+    background-color: red;
+    color: darkblue;
+    
+}
+
+.Brisbane {
+    background-color: maroon;
+    color: gold;
+}
+
+.Carlton {
+    background-color: navy;
+    color: white;
+}
+
+.Collingwood {
+    background-color: black;
+    color: white;
+}
+
+.Essendon {
+    background-color: black;
+    color: red;
+}
+
+.Fremantle {
+    background-color: #2A0D54;
+    color: white;
+}
+
+.Geelong {
+    background-color: darkblue;
+    color: white;
+}
+
+.GoldCoast {
+    background-color: red;
+    color: gold;
+}
+
+.GWS {
+    background-color: orange;
+    color: rgb(83, 83, 83);
+}
+
+.Hawthorn {
+    background-color: rgb(100, 27, 27);
+    color: gold;
+}
+
+.Melbourne {
+    background-color: darkblue;
+    color: red;
+}
+
+.NorthMelbourne {
+    background-color: royalblue;
+    color: white;
+}
+
+.PortAdelaide {
+    background-color: black;
+    color: teal;
+}
+
+.Richmond {
+    background-color: black;
+    color: gold;
+}
+
+.StKilda {
+    background-color: red;
+    color: black;
+}
+
+.Sydney {
+    background-color: red;
+    color: white;
+}
+
+.WestCoast {
+    background-color: blue;
+    color: gold;
+}
+
+.WesternBulldogs {
+    background-color: royalblue;
+    color: red;
+}
