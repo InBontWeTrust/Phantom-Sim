@@ -66,7 +66,7 @@ let draftOrder = [
 [6,"Sydney"],
 [7,"Port Adelaide"],
 [8,"Gold Coast"],
-[9,"GWS"],
+[9,"Greater Western Sydney"],
 [10,"St Kilda"],
 [11,"Collingwood"],
 [12,"Port Adelaide"],
@@ -77,13 +77,13 @@ let draftOrder = [
 [17,"Essendon"],
 [18,"Carlton"],
 [19,"Fremantle"],
-[20,"GWS"],
+[20,"Greater Western Sydney"],
 [21,"Brisbane"],
 [22,"Port Adelaide"],
 [23,"West Coast"],
 [24,"Port Adelaide"],
 [25,"Essendon"],
-[26,"GWS"],
+[26,"Greater Western Sydney"],
 [27,"Brisbane"],
 [28,"Brisbane"],
 [29,"Hawthorn"],
@@ -116,7 +116,7 @@ let draftOrder = [
 [56,"Adelaide"],
 [57,"Geelong"],
 [58,"West Coast"],
-[59,"GWS"],
+[59,"Greater Western Sydney"],
 [60,"Fremantle"],
 [61,"Carlton"],
 [62,"Geelong"],
@@ -134,7 +134,7 @@ let draftOrder = [
 [74,"North Melbourne"],
 [75,"Geelong"],
 [76,"Sydney"],
-[77,"GWS"],
+[77,"Greater Western Sydney"],
 [78,"Fremantle"],
 [79,"Brisbane"],
 [80,"Essendon"],
@@ -143,7 +143,7 @@ let draftOrder = [
 [83,"Western Bulldogs"],
 [84,"North Melbourne"],
 [85,"Gold Coast"],
-[86,"GWS"],
+[86,"Greater Western Sydney"],
 [87,"St Kilda"],
 [88,"Collingwood"],
 [89,"Western Bulldogs"],
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 selection.addEventListener("keydown", function (e) {
     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
-        Bid();
+        Bid(null);
     
         
     }
@@ -239,7 +239,7 @@ selection.addEventListener("keydown", function (e) {
 
 club.addEventListener("keydown", function (e) {
     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
-        Bid();
+        Bid(null);
         selection.select();
     }});
 
@@ -275,8 +275,9 @@ function pass(){
 }
 
 const playersList = document.getElementById("players")
+let endfirst = 20
 
-function Bid() {
+function Bid(auto) {
 
 
     
@@ -291,6 +292,18 @@ function Bid() {
     let matchingString = "Bid Points Matching: N/A "
     let pickDiff = 0
 
+    if (auto == null) {}
+    else {
+        selectedPlayer = auto
+        if (picksUsed[draftOrder[currentPick-1][1]][0] >= picksUsed[draftOrder[currentPick-1][1]][1]) {
+            pass()
+            return
+        }
+
+         
+    }
+    
+
     let fullSelectedPlayer = selectedPlayer
     selectedPlayer = selectedPlayer.replace(/\s*\(.*?\)\s*/g, "").trim();
 
@@ -302,19 +315,11 @@ function Bid() {
         }
     }
 
-    
+    let nodiscount = ["Adelaide", "Carlton", "Collingwood", "Geelong", "Melbourne", "Western Bulldogs"]
+    let tenloading = ["Hawthorn", "Sydney"]
+    let twentyloading = ["Brisbane", "Fremantle"]
 
-    if (currentPick < 19){
-        bidValue = Math.round((draftValues[bid-1][1]) * 0.9)}
-    else {
-        if (bid < 37)
-        {
-            bidValue = Math.round((draftValues[bid-1][1]) - 84)
-        }
-        else {
-            bidValue = 1
-        }
-    }
+    
     
     let clubPoints = 0
     let picksToRemove = []
@@ -374,7 +379,7 @@ function Bid() {
         selectedClub = "North Melbourne"
     }
     else if (selectedPlayer == "Ethan Matthews") {
-        selectedClub = "GWS"
+        selectedClub = "Greater Western Sydney"
     }
     else {
         selectedClub = "No"
@@ -385,7 +390,24 @@ function Bid() {
     }
     
 
-    
+    if (currentPick < 37){
+        if (nodiscount.includes(selectedClub)){
+        bidValue = Math.round((draftValues[bid-1][1]))}
+        else if (tenloading.includes(selectedClub)){
+            bidValue = Math.round((draftValues[bid-1][1]) * 1.1)
+        }
+        else if (twentyloading.includes(selectedClub)){
+            bidValue = Math.round((draftValues[bid-1][1]) * 1.2)
+        }
+        else {
+            bidValue = Math.round((draftValues[bid-1][1]) * 0.9)
+        }
+    }
+    else {
+
+        bidValue = 1
+        
+    }
 
     if (selectedClub == "No"){
         clearTable()
@@ -427,16 +449,22 @@ function Bid() {
         }
     }
     }
+
     
 
     console.log(picksToRemove)
     pickDiff = clubPoints-bidValue
 
     if (pickDiff < -412) {
-        alert("Cannot match bid, deficit is " + String(pickDiff))
-        
+        alert("Cannot match bid for " + selectedPlayer + ", deficit is " + String(pickDiff))
+        player.value = ""
     }
     else {
+
+        if (currentPick <= endfirst) {
+        endfirst += 1
+        console.log("added bid to first")
+        }
     
 
     if (bidValue == 0){
@@ -476,6 +504,10 @@ function Bid() {
         for (let l = 0; l<picksToRemove.length; l++){
             
             if (picksToRemove[l] == draftOrder[k][0]){
+                if (picksToRemove[l]+1 <= endfirst) {
+                    endfirst -= 1
+                    console.log("removed from first")
+                }
                 console.log('r')
                 console.log(picksToRemove[l])
                 matchingString = matchingString.concat(String(picksToRemove[l])," ")
@@ -490,6 +522,10 @@ function Bid() {
             console.log("pick " + (j+1))
             draftOrder = draftOrder.slice(0,j).concat([[j+1, selectedClub]]).concat(draftOrder.slice(j))
             matchingString = matchingString.concat(selectedClub, " gain: ",String(j+1))
+            if (j+1 <= endfirst) {
+                endfirst += 1
+                console.log("added new first")
+            }
             break
         }
         
@@ -527,7 +563,20 @@ function Bid() {
     
     currentPick += 1
 
+    if (currentPick == endfirst + 1) {
+        clearTable()
+        draftOrder = draftOrder.slice(0,currentPick-1).concat([[currentPick, "Essendon"]]).concat(draftOrder.slice(currentPick-1))
+        console.log(draftOrder)
 
+        draftOrder = draftOrder.slice(0,currentPick+1).concat([[currentPick+2, "Richmond"]]).concat(draftOrder.slice(currentPick+1))
+        console.log(draftOrder)
+
+        draftOrder = draftOrder.slice(0,currentPick+3).concat([[currentPick+4, "West Coast"]]).concat(draftOrder.slice(currentPick+3))
+        console.log(draftOrder)
+        ReassignPickNums()
+        GenerateTable()
+
+    }
 
     document.getElementById("current-pick").innerText = "Current Pick: " + currentPick
     document.getElementById("current-club").innerText = "Current Club: " + draftOrder[currentPick-1][1]
@@ -551,6 +600,10 @@ function Bid() {
         clearTable()
         GenerateTable()
     }
+
+    console.log(endfirst)
+
+    
 
 }
 
@@ -671,6 +724,13 @@ function ReassignPickNums() {
     for (let i = 0; i<draftOrder.length; i++){
         draftOrder[i][0] = i+1
     } 
+}
+
+function auto() {
+    selectedIndex = Math.floor((((Math.random()**1.5) * (currentPick)**.8)+0.001));
+    console.log(playersList.options[selectedIndex].value)
+    Bid(playersList.options[selectedIndex].value)
+
 }
 
 function GenerateTable() {
