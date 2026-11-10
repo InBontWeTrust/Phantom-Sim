@@ -276,6 +276,9 @@ function pass(){
 
 const playersList = document.getElementById("players")
 let endfirst = 20
+let r2p1 = 21
+let r2p2 = 22
+let r2p3 = 23
 
 function Bid(auto) {
 
@@ -356,6 +359,9 @@ function Bid(auto) {
     }
 
     else if (selectedPlayer == "Finlay Yeo") {
+        selectedClub = "Fremantle"
+    }
+    else if (selectedPlayer == "Lucas Robinson") {
         selectedClub = "Fremantle"
     }
     else if (selectedPlayer == "Anthony Long") {
@@ -466,6 +472,18 @@ function Bid(auto) {
         endfirst += 1
         console.log("added bid to first")
         }
+        if (currentPick <= r2p1) {
+        r2p1 += 1
+        console.log("added bid to first")
+        }
+        if (currentPick <= r2p2) {
+        r2p2 += 1
+        console.log("added bid to first")
+        }
+        if (currentPick <= r2p3) {
+        r2p3 += 1
+        console.log("added bid to first")
+        }
     
 
     if (bidValue == 0){
@@ -509,6 +527,19 @@ function Bid(auto) {
                     endfirst -= 1
                     console.log("removed from first")
                 }
+                if (picksToRemove[l]+1 <= r2p1) {
+                    r2p1 -= 1
+                    console.log("removed from first")
+                }
+                if (picksToRemove[l]+1 <= r2p2) {
+                    r2p2 -= 1
+                    console.log("removed from first")
+                }
+                if (picksToRemove[l]+1 <= r2p3) {
+                    r2p3 -= 1
+                    console.log("removed from first")
+                }
+               
                 console.log('r')
                 console.log(picksToRemove[l])
                 matchingString = matchingString.concat(String(picksToRemove[l])," ")
@@ -525,6 +556,18 @@ function Bid(auto) {
             matchingString = matchingString.concat(selectedClub, " gain: ",String(j+1))
             if (j+1 <= endfirst) {
                 endfirst += 1
+                console.log("added new first")
+            }
+            if (j+1 <= r2p1) {
+                r2p1 += 1
+                console.log("added new first")
+            }
+            if (j+1 <= r2p2) {
+                r2p2 += 1
+                console.log("added new first")
+            }
+            if (j+1 <= r2p3) {
+                r2p3 += 1
                 console.log("added new first")
             }
             break
@@ -566,13 +609,16 @@ function Bid(auto) {
 
     if (currentPick == endfirst + 1) {
         clearTable()
-        draftOrder = draftOrder.slice(0,currentPick-1).concat([[currentPick, "Essendon"]]).concat(draftOrder.slice(currentPick-1))
+        draftOrder = draftOrder.slice(0,r2p1).concat([[currentPick, "Essendon"]]).concat(draftOrder.slice(r2p1))
         console.log(draftOrder)
+        r2p2 += 1
+        r2p3 += 1
 
-        draftOrder = draftOrder.slice(0,currentPick+1).concat([[currentPick+2, "Richmond"]]).concat(draftOrder.slice(currentPick+1))
+        draftOrder = draftOrder.slice(0,r2p2).concat([[currentPick+2, "Richmond"]]).concat(draftOrder.slice(r2p2))
         console.log(draftOrder)
+        r2p3 += 1
 
-        draftOrder = draftOrder.slice(0,currentPick+3).concat([[currentPick+4, "West Coast"]]).concat(draftOrder.slice(currentPick+3))
+        draftOrder = draftOrder.slice(0,r2p3).concat([[currentPick+4, "West Coast"]]).concat(draftOrder.slice(r2p3))
         console.log(draftOrder)
         ReassignPickNums()
         GenerateTable()
@@ -728,7 +774,7 @@ function ReassignPickNums() {
 }
 
 function auto() {
-    selectedIndex = Math.floor((((Math.random()**1.5) * (currentPick)**.8)+0.001));
+    selectedIndex = Math.floor((((Math.random()**1.8) * (currentPick)**.8)+0.001));
     console.log(playersList.options[selectedIndex].value)
     Bid(playersList.options[selectedIndex].value)
 
@@ -833,6 +879,60 @@ function finish() {
         const player = document.createElement("td")
         pick.innerText = i+1
         club.innerText = draftOrder[i][1]
+        if (club.innerText == "Essendon") {
+            club.classList.add("Essendon")
+        }
+        if (club.innerText == "Adelaide") {
+            club.classList.add("Adelaide")
+        }
+        if (club.innerText == "Brisbane") {
+            club.classList.add("Brisbane")
+        }
+        if (club.innerText == "Carlton") {
+            club.classList.add("Carlton")
+        }
+        if (club.innerText == "Collingwood") {
+            club.classList.add("Collingwood")
+        }
+        if (club.innerText == "Fremantle") {
+            club.classList.add("Fremantle")
+        }
+        if (club.innerText == "Geelong") {
+            club.classList.add("Geelong")
+        }
+        if (club.innerText == "Gold Coast") {
+            club.classList.add("GoldCoast")
+        }
+        if (club.innerText == "Greater Western Sydney") {
+            club.classList.add("GWS")
+        }
+        if (club.innerText == "Hawthorn") {
+            club.classList.add("Hawthorn")
+        }
+        if (club.innerText == "Melbourne") {
+            club.classList.add("Melbourne")
+        }
+        if (club.innerText == "North Melbourne") {
+            club.classList.add("NorthMelbourne")
+        }
+        if (club.innerText == "Port Adelaide") {
+            club.classList.add("PortAdelaide")
+        }
+        if (club.innerText == "Richmond") {
+            club.classList.add("Richmond")
+        }
+        if (club.innerText == "St Kilda") {
+            club.classList.add("StKilda")
+        }
+        if (club.innerText == "Sydney") {
+            club.classList.add("Sydney")
+        }
+        if (club.innerText == "West Coast") {
+            club.classList.add("WestCoast")
+        }
+        if (club.innerText == "Western Bulldogs") {
+            club.classList.add("WesternBulldogs")
+        }
         if (i < 55){
         points.innerText = draftValues[i][1]
         }
