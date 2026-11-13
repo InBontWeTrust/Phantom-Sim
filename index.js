@@ -428,9 +428,11 @@ function Bid(auto) {
     }
     }
     else {
+        let nextPick = 0
         for (let i = currentPick - 1; i<draftOrder.length; i++){
+            
         if (draftOrder[i][1] == selectedClub) {
-            let nextPick = 0
+            
             if (nextPick == 0){
                 picksToRemove.push(draftOrder[i][0])
                 nextPick = 1
@@ -499,6 +501,7 @@ function Bid(auto) {
 
     clearTable()
     draftOrder = draftOrder.slice(0,bid-1).concat([newPick]).concat(draftOrder.slice(bid-1))
+    draftOrder = draftOrder.concat([[draftOrder.length + 1, selectedClub]])
     
     console.log(draftOrder[0][0])
     matchingString = "Bid Points Matching: " +selectedClub +  " lose: "
@@ -757,8 +760,13 @@ function ReassignPickNums() {
 }
 
 function auto() {
-    selectedIndex = Math.floor((((Math.random()**1.8) * (currentPick)**.8)+0.001));
+    selectedIndex = Math.floor((((Math.random()**2) * (currentPick)**.9)+0.001));
+    if (selectedIndex > playersList.options.length-1) {
+        selectedIndex = 0
+    }
+    else {
     console.log(playersList.options[selectedIndex].value)
+    }
     Bid(playersList.options[selectedIndex].value)
 
 }
